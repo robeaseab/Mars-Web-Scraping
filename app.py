@@ -14,14 +14,13 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    
-    return render_template("index.html")
+    return render_template("index.html",news_title = news_title, news_p = news_p, news_date=news_date )
 
 
 @app.route("/scrape")
 def scraper():
-    news_title 
-    top_img_url
+    news_title = news_title
+    #top_img_url
     #mars_weather = mars_weather
     
     return redirect("/", code=302)

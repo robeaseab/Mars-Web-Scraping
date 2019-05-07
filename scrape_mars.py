@@ -11,13 +11,23 @@ def init_browser():
 
 
 def scrape():
-    #find news
+    #find latest news information
+    browser = init_browser()
+    executable_path = {'executable_path': 'chromedriver'}
+    browser = Browser('chrome', **executable_path, headless=False)
     url = 'https://mars.nasa.gov/news/'
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    browser.visit(url)
+    html = browser.html
+    soup = BeautifulSoup(html, 'html.parser')
     titles = soup.find_all('div', class_="content_title")
     news_title = titles[0].text.strip()
     print(news_title)
+    p_texts = soup.find_all('div', class_="article_teaser_body")
+    news_p = p_texts[0].text.strip()
+    print(news_p)
+    dates = soup.find_all('div', class_="list_date")
+    news_date = dates[0].text.strip()
+    print(news_date)
 
     #top image
     executable_path = {'executable_path': 'chromedriver'}
@@ -29,3 +39,6 @@ def scrape():
     soup = BeautifulSoup(html, 'html.parser')
     top_img = soup.find('img', class_="fancybox-image")
     top_img['src']
+
+if __name__ == "__main__":
+    scrape()
