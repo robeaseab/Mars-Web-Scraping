@@ -19,6 +19,7 @@ def scrape():
     browser = Browser('chrome', **executable_path, headless=False)
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
+    time.sleep(2)
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
     titles = soup.find_all('div', class_="content_title")
@@ -38,10 +39,10 @@ def scrape():
     browser = Browser('chrome', **executable_path, headless=False)
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url)
-    time.sleep(1)
+    time.sleep(2)
     #navigate to top image
     browser.click_link_by_partial_text('FULL IMAGE')
-    time.sleep(1)
+    time.sleep(2)
     #set up beautiful soup for new page
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
@@ -77,8 +78,9 @@ def scrape():
     mars_df = tables[0]
     mars_df
     html_table=mars_df.to_html(na_rep = " ",index = False, header=False)
-    # mars_df.to_html('table.html')
-    html_table
+    #html_table = html_table.replace('\n','')
+    #html_table = html_table.replace("'",' ')
+    print(html_table)
     #Mars Hemispheres
     #define path & set up browser
     executable_path = {'executable_path': 'chromedriver'}

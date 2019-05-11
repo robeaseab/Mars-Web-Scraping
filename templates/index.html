@@ -16,70 +16,70 @@
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
-    
+
     <!-- Mars Listings -->
     <div class="container">
-      
-    <div class="jumbotron text-left">
-    <div class="row" id="mars_news">
-      <div class="col-md-12">
-        <h2 class="heading">Latest Mars News</h2>
-        <h4>{{scrape_dict.mars_news.news_title}}</h4>
-        <small>{{scrape_dict.mars_news.news_date}}</small>
-        <p>{{scrape_dict.mars_news.news_p}}<a href="https://mars.nasa.gov/news " target="__blank">   visit source</a></p>
+
+      <div class="jumbotron text-left">
+        <div class="row" id="mars_news">
+          <div class="col-md-12">
+            <h2 class="heading">Latest Mars News</h2>
+            <h4>{{scrape_dict.mars_news.news_title}}</h4>
+            <small>{{scrape_dict.mars_news.news_date}}</small>
+            <p>{{scrape_dict.mars_news.news_p}}<a href="https://mars.nasa.gov/news " target="__blank"> visit source</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Top Mars Image</h2>
+            <img src="{{scrape_dict.top_img_url}}" alt="top mars image" class="img-responsive">
+            <p>
+              <small>
+                <a href="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars" target="__blank">visit source</a>
+              </small>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h2>Current Weather on Mars</h2>
+            <small>{{scrape_dict.mars_weather}}</small>
+            <h2>Mars Facts</h2>
+            {{scrape_dict.html_table}}
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class=col-12 class="text-center">
+            <h2>Mars Hemispheres</h2>
+          </div>
+          <div class="col-md-5">
+            <div class="card">
+              <img src="{{scrape_dict.hemisphere_image_urls[1]['img_url']}}" alt="" class="img-responsive">
+              <P>{{scrape_dict.hemisphere_image_urls[1]['title']}}</P>
+            </div>
+            <div class="card">
+              <img src="{{scrape_dict.hemisphere_image_urls[2]['img_url']}}" alt="" class="img-responsive">
+              <P>{{scrape_dict.hemisphere_image_urls[2]['title']}}</P>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="card">
+              <img src="{{scrape_dict.hemisphere_image_urls[3]['img_url']}}" alt="" class="img-responsive">
+              <P>{{scrape_dict.hemisphere_image_urls[3]['title']}}</P>
+            </div>
+            <div class="card">
+              <img src="{{scrape_dict.hemisphere_image_urls[0]['img_url']}}" alt="" class="img-responsive">
+              <P>{{scrape_dict.hemisphere_image_urls[0]['title']}}</P>
+            </div>
+          </div>
+          <div><a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars">Read
+              More</a></div>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-9" >
-        <h2>Top Mars Image</h2>
-        <img src="{{scrape_dict.top_img_url}}" alt="top mars image" class="img-responsive">
-        <p>
-          <small> 
-          <a href="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars" target="__blank">visit source</a>
-        </small>
-        </p>
-      </div>
-      <div class="col-md-3">
-        <h2>Current Weather on Mars</h2>
-        <small>{{scrape_dict.mars_weather}}</small>
-     
-        <h2>Mars Facts</h2>
-        <!-- {{scrape_dict.html_table}} -->
-        <table border="1" class="dataframe">\n  <tbody>\n    <tr>\n      <td>Equatorial Diameter:</td>\n      <td>6,792 km</td>\n    </tr>\n    <tr>\n      <td>Polar Diameter:</td>\n      <td>6,752 km</td>\n    </tr>\n    <tr>\n      <td>Mass:</td>\n      <td>6.42 x 10^23 kg (10.7% Earth)</td>\n    </tr>\n    <tr>\n      <td>Moons:</td>\n      <td>2 (Phobos &amp; Deimos)</td>\n    </tr>\n    <tr>\n      <td>Orbit Distance:</td>\n      <td>227,943,824 km (1.52 AU)</td>\n    </tr>\n    <tr>\n      <td>Orbit Period:</td>\n      <td>687 days (1.9 years)</td>\n    </tr>\n    <tr>\n      <td>Surface Temperature:</td>\n      <td>-153 to 20 °C</td>\n    </tr>\n    <tr>\n      <td>First Record:</td>\n      <td>2nd millennium BC</td>\n    </tr>\n    <tr>\n      <td>Recorded By:</td>\n      <td>Egyptian astronomers</td>\n    </tr>\n  </tbody>\n</table>
-</div>
-
-
-    </div> 
-    <div class="row">
-      <div class=col-12 class="text-center"> 
-      <h2>Mars Hemispheres</h2>
     </div>
-      <div class="col-md-6"> 
-        <div class="card"> 
-        <img src="{{scrape_dict.hemisphere_image_urls[1]['img_url']}}" alt="" class="img-responsive">
-      <P>{{scrape_dict.hemisphere_image_urls[1]['title']}}</P>
-    </div>
-    <div class="card"> 
-        <img src="{{scrape_dict.hemisphere_image_urls[2]['img_url']}}" alt="" class="img-responsive">
-      <P>{{scrape_dict.hemisphere_image_urls[2]['title']}}</P>
-    </div>
-    </div>
-    <div class="col-md-6"> 
-        <div class="card"> 
-        <img src="{{scrape_dict.hemisphere_image_urls[3]['img_url']}}" alt="" class="img-responsive">
-      <P>{{scrape_dict.hemisphere_image_urls[3]['title']}}</P>
-    </div>
-    <div class="card"> 
-        <img src="{{scrape_dict.hemisphere_image_urls[0]['img_url']}}" alt="" class="img-responsive">
-      <P>{{scrape_dict.hemisphere_image_urls[0]['title']}}</P>
-    </div>
-    </div>
-    <div><a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars">Read More</a></div>
-  </div>
-  </div>
-</div>
 </body>
 
 </html>
-
