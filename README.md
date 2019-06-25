@@ -31,7 +31,7 @@ Used MongoDB with Flask templating and created a new HTML page that displayed al
 
 * Created a route called `/scrape` that imported my python script and called my `scrape` function.
 
-  * Storee the return value in Mongo as a Python dictionary.
+* Stored the return value in Mongo as a Python dictionary.
 
 * Created a root route `/` that queried my Mongo database and passed the mars data into an HTML template to display the data.
 
